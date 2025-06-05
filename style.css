@@ -1,0 +1,297 @@
+/* 基本設定とフォント */
+:root {
+    --primary-color: #3498db; /* 青系 - 迅速さ、信頼 */
+    --secondary-color: #2ecc71; /* 緑系 - 親切さ、安心 */
+    --text-color: #333333;
+    --background-color: #ffffff;
+    --light-gray: #f4f4f4;
+    --heading-font: 'Noto Sans JP', sans-serif;
+    --body-font: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+.sr-only { /* スクリーンリーダー用 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.sp-only { display: none; } /* モバイルでのみ表示する改行用 */
+
+/* ヘッダー */
+header {
+    background-color: var(--background-color);
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.global-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.global-nav li {
+    margin-left: 20px;
+}
+
+.global-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.global-nav a:hover,
+.global-nav a:focus {
+    color: var(--secondary-color);
+}
+
+.menu-toggle { /* ハンバーガーメニューボタン */
+    display: none; /* PCでは非表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* ヒーローセクション */
+.hero {
+    background-color: var(--primary-color); /* 青背景 */
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: white; /* ヒーローセクション内のH1は白 */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color); /* 緑ボタン */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #27ae60; /* 少し濃い緑 */
+    transform: translateY(-2px);
+}
+
+/* サービス概要セクション */
+.service-overview {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap; /* モバイルで折り返す */
+}
+
+.feature-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    flex-basis: calc(33.333% - 20px); /* 3列均等、gapを考慮 */
+    min-width: 280px; /* 最小幅 */
+}
+.feature-item h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+.feature-item p {
+    font-size: 0.95em;
+    color: #555;
+}
+.feature-icon {
+    width: 60px; /* アイコンサイズ調整 */
+    height: 60px;
+    margin-bottom: 15px;
+    /* filter: invert(58%) sepia(54%) saturate(2930%) hue-rotate(176deg) brightness(93%) contrast(86%); */ /* 青っぽくする例 */
+}
+
+
+/* クイックリンク (カード) セクション */
+.quick-links {
+    padding: 60px 0;
+}
+.link-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover,
+.card:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--secondary-color);
+}
+.card h3 {
+    margin-top: 0;
+    color: var(--secondary-color); /* カードタイトルは緑 */
+    font-size: 1.4em;
+}
+.card p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* フッター */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* レスポンシブ対応 (モバイル) */
+@media (max-width: 768px) {
+    .sp-only { display: block; } /* モバイルでのみ表示する改行 */
+
+    .hero h1 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+
+    .menu-toggle {
+        display: block; /* モバイルでハンバーガーメニュー表示 */
+        z-index: 1001; /* ナビメニューより手前に */
+    }
+    .global-nav ul {
+        display: none; /* 初期状態は非表示 */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* ヘッダーの高さに応じて調整 */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 10px 0;
+    }
+    .global-nav ul.active { /* JavaScriptで .active クラスを付与 */
+        display: flex;
+    }
+    .global-nav li {
+        margin: 0;
+        width: 100%;
+    }
+    .global-nav a {
+        display: block;
+        padding: 12px 20px;
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .global-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    .features {
+        flex-direction: column; /* 縦並びにする */
+    }
+    .feature-item {
+        flex-basis: auto; /* 幅を自動に */
+        margin-bottom: 20px; /* アイテム間のマージン */
+    }
+    .feature-item:last-child {
+        margin-bottom: 0;
+    }
+}
