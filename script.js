@@ -1,277 +1,86 @@
-/* 基本設定とフォント */
-:root {
-    --primary-color: #3498db; /* 青系 - 迅速さ、信頼 */
-    --secondary-color: #2ecc71; /* 緑系 - 親切さ、安心 */
-    --text-color: #333333;
-    --text-light: #555555;
-    --background-color: #ffffff;
-    --light-gray-bg: #f8f9fa; /* セクションの交互背景色 */
-    --heading-font: 'Noto Sans JP', sans-serif;
-    --body-font: 'Noto Sans JP', sans-serif;
-    --header-height: 70px; /* ヘッダーの高さ */
-}
+document.addEventListener('DOMContentLoaded', function () {
+    // モバイルナビゲーションのトグル
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('#mainNav');
 
-html {
-    scroll-behavior: smooth; /* スムーズスクロール */
-    font-size: 16px; /* ベースフォントサイズ */
-}
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function () {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mainNav.classList.toggle('active');
 
-body {
-    margin: 0;
-    padding-top: var(--header-height); /* 固定ヘッダー分の余白 */
-    font-family: var(--body-font);
-    color: var(--text-color);
-    background-color: var(--background-color);
-    line-height: 1.7;
-}
+            // ハンバーガーアイコンのアニメーション (X印など)
+            const bars = menuToggle.querySelectorAll('.bar');
+            if (mainNav.classList.contains('active')) {
+                bars[0].style.transform = 'rotate(-45deg) translate(-4px, 4px)';
+                bars[1].style.opacity = '0';
+                bars[2].style.transform = 'rotate(45deg) translate(-5px, -5px)';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[1].style.opacity = '1';
+                bars[2].style.transform = 'none';
+            }
+        });
 
-.container {
-    width: 90%;
-    max-width: 960px; /* sakanayajaponの例に近づける */
-    margin: 0 auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font);
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-top: 0;
-    margin-bottom: 0.8em;
-}
-h1 { font-size: 2.2rem; line-height: 1.3; }
-h2 { font-size: 1.8rem; margin-bottom: 1em; text-align: center;}
-h3 { font-size: 1.4rem; color: var(--secondary-color); } /* H3はアクセントカラー */
-
-p { margin-bottom: 1em; }
-a { color: var(--primary-color); text-decoration: none; }
-a:hover, a:focus { color: var(--secondary-color); text-decoration: underline; }
-
-img { max-width: 100%; height: auto; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;}
-.sp-only { display: none; }
-
-/* ヘッダー */
-.site-header {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid #eee;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--header-height);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-}
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-.global-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-.global-nav li { margin-left: 15px; }
-.global-nav a {
-    color: var(--text-color);
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: color 0.3s, background-color 0.3s;
-}
-.global-nav a:hover, .global-nav a:focus, .global-nav a.active { /* アクティブなリンクのスタイル */
-    color: var(--secondary-color);
-    background-color: #eafaf1;
-}
-.nav-button {
-    background-color: var(--secondary-color);
-    color: white !important; /* importantで他のスタイルを上書き */
-    padding: 8px 15px !important;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.nav-button:hover, .nav-button:focus {
-    background-color: #27ae60; /* 少し濃い緑 */
-    color: white !important;
-    text-decoration: none;
-}
-
-.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 10px; }
-.menu-toggle .bar { display: block; width: 22px; height: 2px; background-color: var(--text-color); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
-
-/* セクション共通 */
-.section-padding { padding: 60px 0; }
-.section-padding-alt { padding: 60px 0; background-color: var(--light-gray-bg); }
-
-/* ヒーローセクション風トップ */
-.hero-section {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-}
-.hero-section h1, .hero-section h2 { color: white; } /* Request formセクションもhero-sectionスタイルを流用 */
-.hero-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5em;}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.cta-button:hover, .cta-button:focus {
-    background-color: #27ae60;
-    transform: translateY(-2px);
-    color: white;
-    text-decoration: none;
-}
-.link-button { /* PDFなどへの汎用リンクボタン */
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-.link-button:hover, .link-button:focus {
-    background-color: #2980b9; /* 少し濃い青 */
-    color: white;
-    text-decoration: none;
-}
-
-/* 文章主体のコンテンツエリア */
-.content-prose {
-    max-width: 720px; /* 文章が読みやすい幅 */
-    margin-left: auto;
-    margin-right: auto;
-}
-.content-prose h2 { text-align: left; } /* 通常セクションのH2は左寄せ */
-.content-prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5em;
-}
-.content-prose th, .content-prose td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-.content-prose th {
-    background-color: var(--light-gray-bg);
-    font-weight: bold;
-}
-.content-prose ol, .content-prose ul {
-    padding-left: 20px;
-    margin-bottom: 1em;
-}
-.content-prose li { margin-bottom: 0.5em; }
-
-/* 事例紹介 */
-.case-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    border: 1px solid #e0e0e0;
-}
-.case-item:last-child { margin-bottom: 0; }
-.case-item h3 { margin-bottom: 0.5em; }
-
-/* FAQ */
-.lang-toggle { margin-bottom: 20px; }
-.lang-btn {
-    background-color: #e0e0e0;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-right: 5px;
-    font-weight: 500;
-}
-.lang-btn.active {
-    background-color: var(--secondary-color);
-    color: white;
-}
-.faq-item { margin-bottom: 1.5em; }
-.faq-item h3 { font-size: 1.2rem; margin-bottom: 0.3em; color: var(--primary-color);} /* FAQのQは青 */
-
-/* 連絡先 */
-.social-contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
-}
-.social-item {
-    flex: 1;
-    min-width: 200px;
-}
-.qr-code {
-    width: 120px;
-    height: 120px;
-    border: 1px solid #eee;
-    margin-top: 5px;
-}
-
-/* フッター */
-.site-footer-bottom {
-    background-color: #333;
-    color: #f0f0f0;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
-}
-
-/* レスポンシブ (モバイル) */
-@media (max-width: 768px) {
-    html { font-size: 15px; }
-    .sp-only { display: block; }
-    .container { width: 95%; }
-
-    .menu-toggle { display: block; }
-    .global-nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: calc(var(--header-height) - 1px); /* ヘッダーのボーダーの下から */
-        left: 0;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 3px 5px rgba(0,0,0,0.1);
-        padding: 10px 0;
-        border-top: 1px solid #eee;
+        // ナビリンククリックでメニューを閉じる
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    menuToggle.click(); // ハンバーガーボタンのクリックイベントを発火
+                }
+            });
+        });
     }
-    .global-nav ul.active { display: flex; }
-    .global-nav li { margin: 0; width: 100%; }
-    .global-nav a {
-        display: block;
-        padding: 12px 20px;
-        text-align: left;
-        border-bottom: 1px solid #f0f0f0;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .global-nav li:last-child a { border-bottom: none; }
-    .nav-button { width: auto; margin: 10px 20px; text-align: center;}
 
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.6rem; }
+    // FAQ言語切り替え
+    const langToggleButtons = document.querySelectorAll('.lang-btn');
+    const faqItemsJa = document.querySelectorAll('.faq-item.lang-ja');
+    const faqItemsEn = document.querySelectorAll('.faq-item.lang-en');
 
-    .social-contact { flex-direction: column; }
-}
+    langToggleButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const lang = this.dataset.lang;
+
+            // ボタンのアクティブ状態を更新
+            langToggleButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            if (lang === 'ja') {
+                faqItemsJa.forEach(item => item.style.display = 'block');
+                faqItemsEn.forEach(item => item.style.display = 'none');
+            } else if (lang === 'en') {
+                faqItemsJa.forEach(item => item.style.display = 'none');
+                faqItemsEn.forEach(item => item.style.display = 'block');
+            }
+        });
+    });
+
+    // スクロールに応じてナビゲーションのアクティブ状態を更新 (オプション)
+    const sections = document.querySelectorAll('main section[id]');
+    const navLi = document.querySelectorAll('.global-nav ul li a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - (var(--header-height) + 50); // ヘッダーの高さを考慮 + 少しオフセット
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLi.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === `#${current}`) {
+                a.classList.add('active');
+            }
+        });
+         // Request Formボタンは常にアクティブにはしない
+        const requestFormNavButton = document.querySelector('.global-nav a.nav-button');
+        if (requestFormNavButton && current === 'request-form') {
+            // 何もしないか、特別なスタイルが必要ならここに追加
+        } else if (requestFormNavButton) {
+            // requestFormNavButton.classList.remove('active'); // 通常のリンクと同じように扱うなら必要
+        }
+    });
+});
