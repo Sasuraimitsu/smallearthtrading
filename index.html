@@ -10,20 +10,28 @@
 <body>
     <header class="site-header">
         <div class="container header-container">
-            <a href="#" class="logo">貴社ロゴ</a>
-            <nav class="global-nav">
+            <a href="#" class="logo"><span class="lang-ja">貴社ロゴ</span><span class="lang-en" style="display:none;">Your Logo</span></a>
+
+            <div class="header-controls">
+                <div class="language-switcher">
+                    <button class="lang-switch-btn" data-lang="ja">日本語</button>
+                    <button class="lang-switch-btn" data-lang="en">English</button>
+                </div>
                 <button class="menu-toggle" aria-expanded="false" aria-controls="mainNav">
                     <span class="sr-only">メニュー開閉</span>
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </button>
+            </div>
+
+            <nav class="global-nav">
                 <ul id="mainNav">
-                    <li><a href="#about-us">About us</a></li>
-                    <li><a href="#price-list">Price list</a></li>
-                    <li><a href="#flow">Flow</a></li>
-                    <li><a href="#case-study">Case study</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#request-form" class="nav-button">Request form</a></li>
+                    <li><a href="#about-us"><span class="lang-ja">私たちについて</span><span class="lang-en" style="display:none;">About Us</span></a></li>
+                    <li><a href="#price-list"><span class="lang-ja">料金表</span><span class="lang-en" style="display:none;">Price List</span></a></li>
+                    <li><a href="#flow"><span class="lang-ja">ご利用の流れ</span><span class="lang-en" style="display:none;">Flow</span></a></li>
+                    <li><a href="#case-study"><span class="lang-ja">導入事例</span><span class="lang-en" style="display:none;">Case Study</span></a></li>
+                    <li><a href="#faq"><span class="lang-ja">よくある質問</span><span class="lang-en" style="display:none;">FAQ</span></a></li>
+                    <li><a href="#contact"><span class="lang-ja">お問い合わせ</span><span class="lang-en" style="display:none;">Contact</span></a></li>
+                    <li><a href="#request-form" class="nav-button"><span class="lang-ja">お申込み</span><span class="lang-en" style="display:none;">Request</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -32,145 +40,21 @@
     <main>
         <section id="hero-top" class="hero-section section-padding">
             <div class="container">
-                <h1>カンボジア・ベトナムへの輸出入を、<br class="sp-only">迅速かつ丁寧にお手伝い。</h1>
-                <p>信頼と実績の物流サポートで、お客様のビジネスを力強くバックアップします。</p>
-                <a href="#request-form" class="cta-button">今すぐ相談する</a>
+                <h1>
+                    <span class="lang-ja">カンボジア・ベトナムへの輸出入を、<br class="sp-only">迅速かつ丁寧にお手伝い。</span>
+                    <span class="lang-en" style="display:none;">Fast and courteous support for your<br class="sp-only"> exports and imports.</span>
+                </h1>
+                <p>
+                    <span class="lang-ja">信頼と実績の物流サポートで、お客様のビジネスを力強くバックアップします。</span>
+                    <span class="lang-en" style="display:none;">We strongly back up your business with reliable and proven logistics support.</span>
+                </p>
+                <a href="#request-form" class="cta-button">
+                    <span class="lang-ja">今すぐ相談する</span>
+                    <span class="lang-en" style="display:none;">Consult Now</span>
+                </a>
             </div>
         </section>
 
         <section id="about-us" class="section-padding">
             <div class="container content-prose">
-                <h2>About us (私たちについて)</h2>
-                <p>ここに会社紹介文が入ります。私たちのミッション、ビジョン、これまでの歩みなど。お客様に信頼感と親近感を持っていただけるような内容を心がけましょう。</p>
-                <p>どのようなサービスを提供していて、どのような強みがあるのかを簡潔に説明します。例えば、特定の地域に特化していること、長年の経験、独自のネットワークなどが挙げられます。</p>
-            </div>
-        </section>
-
-        <section id="price-list" class="section-padding-alt">
-            <div class="container content-prose">
-                <h2>Price list (料金表)</h2>
-                <p>ここに料金表が入ります。マークダウン形式で記述するか、以下のようにPDFへのリンクを設置できます。</p>
-                <h3>基本サービス料金</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>サービス項目</th>
-                            <th>料金</th>
-                            <th>備考</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>書類作成サポート</td>
-                            <td>¥XX,XXX</td>
-                            <td>1案件あたり</td>
-                        </tr>
-                        <tr>
-                            <td>海上輸送（標準コンテナ）</td>
-                            <td>¥XXX,XXX</td>
-                            <td>行き先、サイズにより変動</td>
-                        </tr>
-                        <tr>
-                            <td>航空輸送（1kgあたり）</td>
-                            <td>¥X,XXX</td>
-                            <td>最小ロットXXkg</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>※上記は一例です。詳細はお問い合わせください。</p>
-            </div>
-        </section>
-
-        <section id="flow" class="section-padding">
-            <div class="container content-prose">
-                <h2>Flow (ご利用の流れ)</h2>
-                <p>サービスをご利用いただく際の一般的な流れをご説明します。お客様がスムーズにお手続きを進められるよう、ステップごとに分かりやすく記載しましょう。</p>
-                <p><a href="path/to/your/flow_document.pdf" target="_blank" class="link-button">ご利用の流れ (PDF) はこちら</a></p>
-                </div>
-        </section>
-
-        <section id="case-study" class="section-padding-alt">
-            <div class="container content-prose">
-                <h2>Case study (導入事例)</h2>
-                <p>これまでに私たちが手掛けた案件の中から、いくつかの事例をご紹介します。</p>
-                <article class="case-item">
-                    <h3>ケース1: アパレル製品のカンボジア向け輸出</h3>
-                    <p><strong>お客様の課題:</strong> 初めての海外輸出で手続きが複雑。納期も厳守したい。</p>
-                    <p><strong>提案と結果:</strong> 弊社が書類作成から現地配送まで一貫してサポート。煩雑な手続きを代行し、予定通りに納品を完了。お客様からは「安心して任せられた」とのお言葉をいただきました。</p>
-                </article>
-                <article class="case-item">
-                    <h3>ケース2: ベトナムからの機械部品輸入</h3>
-                    <p><strong>お客様の課題:</strong> 定期的な輸入コストを削減したい。リードタイムも短縮したい。</p>
-                    <p><strong>提案と結果:</strong> 現地パートナーとの連携を強化し、物流ルートを最適化。従来よりもコストを15%削減し、リードタイムも3日短縮することに成功しました。</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="faq" class="section-padding">
-            <div class="container content-prose">
-                <h2>FAQ (よくあるご質問)</h2>
-                <div class="lang-toggle">
-                    <button class="lang-btn active" data-lang="ja">日本語</button>
-                    <button class="lang-btn" data-lang="en">English</button>
-                </div>
-
-                <div class="faq-item lang-ja">
-                    <h3>Q. 見積もりは無料ですか？</h3>
-                    <p>A. はい、お見積もりは無料です。お気軽にお問い合わせください。</p>
-                </div>
-                <div class="faq-item lang-en" style="display: none;">
-                    <h3>Q. Is the quotation free?</h3>
-                    <p>A. Yes, the quotation is free. Please feel free to contact us.</p>
-                </div>
-
-                <div class="faq-item lang-ja">
-                    <h3>Q. どのようなものが送れませんか？</h3>
-                    <p>A. 法律で禁止されているもの、危険物、生鮮食品など一部お取り扱いできない品目がございます。詳しくはお問い合わせください。</p>
-                </div>
-                <div class="faq-item lang-en" style="display: none;">
-                    <h3>Q. What items cannot be sent?</h3>
-                    <p>A. Some items such as those prohibited by law, dangerous goods, and perishable foods cannot be handled. Please contact us for details.</p>
-                </div>
-                </div>
-        </section>
-
-        <section id="contact" class="section-padding-alt">
-            <div class="container content-prose">
-                <h2>Contact (お問い合わせ先)</h2>
-                <p>ご相談、お見積もり、その他お問い合わせは下記までお気軽にどうぞ。</p>
-                <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
-                <p><strong>電話番号:</strong> 03-XXXX-XXXX</p>
-
-                <div class="social-contact">
-                    <div class="social-item">
-                        <p><strong>LINE Official:</strong></p>
-                        <a href="YOUR_LINE_OFFICIAL_LINK" target="_blank">LINEで問い合わせる</a><br>
-                        <img src="path/to/your/line_qr.png" alt="LINE QR Code" class="qr-code">
-                    </div>
-                    <div class="social-item">
-                        <p><strong>Telegram:</strong></p>
-                        <a href="YOUR_TELEGRAM_LINK" target="_blank">Telegramで問い合わせる</a><br>
-                        <img src="path/to/your/telegram_qr.png" alt="Telegram QR Code" class="qr-code">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="request-form" class="section-padding hero-section">
-            <div class="container content-prose">
-                <h2>Request form (お申込み・ご相談)</h2>
-                <p>サービスのお申込みや詳しいご相談は、こちらのフォームよりご連絡ください。担当者より折り返しご連絡いたします。</p>
-                <a href="YOUR_REQUEST_FORM_LINK" target="_blank" class="cta-button">お申込み・ご相談フォームへ</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer-bottom">
-        <div class="container">
-            <p>&copy; 2024 貴社名. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                <h2><span class="lang-ja">私たちについて</span><span class="lang-en" style="
