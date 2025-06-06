@@ -72,8 +72,8 @@ img { max-width: 100%; height: auto; }
 .logo {
     flex-shrink: 0;
 }
-.logo img { /* ロゴ画像のスタイルを追加 */
-    height: 45px; /* ヘッダーの高さに合わせて調整 */
+.logo img {
+    height: 45px;
     width: auto;
     display: block;
 }
@@ -105,7 +105,14 @@ img { max-width: 100%; height: auto; }
 
 .global-nav ul { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; }
 .global-nav li { margin-left: 15px; }
-.global-nav a { color: var(--text-color); font-weight: 500; padding: 5px 10px; border-radius: 4px; transition: color 0.3s, background-color 0.3s; }
+.global-nav a {
+    color: var(--text-color);
+    font-weight: 700; /* 文字を太くして視認性を向上 */
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: color 0.3s, background-color 0.3s;
+    white-space: nowrap; /* メニューが改行しないように */
+}
 .global-nav a:hover, .global-nav a:focus, .global-nav a.active { color: var(--secondary-color); background-color: #eafaf1; }
 .nav-button { background-color: var(--secondary-color); color: white !important; padding: 8px 15px !important; border-radius: 5px; font-weight: bold; }
 .nav-button:hover, .nav-button:focus { background-color: #27ae60; color: white !important; text-decoration: none; }
@@ -137,6 +144,9 @@ img { max-width: 100%; height: auto; }
 /* 事例、FAQ、連絡先 */
 .case-item, .faq-item { background-color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
 .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.3em; color: var(--primary-color);}
+.faq-more { margin-top: 30px; text-align: center; font-size: 1.1em; }
+.phone-numbers { margin: 1em 0; }
+.phone-numbers p { margin-bottom: 0.5em; }
 
 .social-contact { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px; }
 .social-item { flex: 1; min-width: 200px; }
@@ -162,7 +172,7 @@ img { max-width: 100%; height: auto; }
     .header-controls { order: 1; }
     .global-nav { order: 2; }
     .logo { order: 0; }
-    .logo img { height: 40px; } /* モバイルでは少し小さく */
+    .logo img { height: 40px; }
 
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.6rem; }
