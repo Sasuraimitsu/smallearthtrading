@@ -12,11 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         mainNavUl.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (mainNavUl.classList.contains('active')) {
-                    menuToggle.click();
-                }
-            });
+            // ページ内リンクでなければ、クリック時にメニューを閉じる
+            if (link.getAttribute('href').startsWith('#')) {
+                link.addEventListener('click', () => {
+                    if (mainNavUl.classList.contains('active')) {
+                        menuToggle.click();
+                    }
+                });
+            }
         });
     }
 
@@ -27,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const htmlTag = document.documentElement;
 
     const pageTitles = {
-        ja: "貴社名 - サービス案内",
-        en: "Your Company Name - Service Information"
+        ja: "SMALL EARTH TRADING Co.,ltd - サービス案内",
+        en: "SMALL EARTH TRADING Co.,ltd - Service Information"
     };
 
     function setLanguage(lang) {
@@ -60,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- スクロールに応じてナビゲーションのアクティブ状態を更新 ---
     const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.global-nav ul a');
+    // ページ内リンクを持つナビゲーションリンクのみを対象にするように修正
+    const navLinks = document.querySelectorAll('.global-nav ul a[href^="#"]');
     const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
 
     function changeNavOnScroll() {
@@ -74,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
+            // hrefが `#/` のような形ではなく `#about-us` のような形であることを確認
+            if (link.hash === `#${currentSectionId}`) {
                 link.classList.add('active');
             }
         });
