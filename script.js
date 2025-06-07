@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         mainNavUl.querySelectorAll('a').forEach(link => {
-            // ページ内リンクでなければ、クリック時にメニューを閉じる
             if (link.getAttribute('href').startsWith('#')) {
                 link.addEventListener('click', () => {
                     if (mainNavUl.classList.contains('active')) {
@@ -59,18 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const preferredLanguage = localStorage.getItem('preferredLanguage');
-    setLanguage(preferredLanguage || 'ja'); // 保存された言語、なければ日本語を適用
+    setLanguage(preferredLanguage || 'ja');
 
     // --- スクロールに応じてナビゲーションのアクティブ状態を更新 ---
     const sections = document.querySelectorAll('main section[id]');
-    // ページ内リンクを持つナビゲーションリンクのみを対象にするように修正
     const navLinks = document.querySelectorAll('.global-nav ul a[href^="#"]');
     const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
 
     function changeNavOnScroll() {
         let currentSectionId = '';
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 10;
+            const sectionTop = section.offsetTop - headerHeight - 20;
             if (window.pageYOffset >= sectionTop) {
                 currentSectionId = section.getAttribute('id');
             }
@@ -78,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            // hrefが `#/` のような形ではなく `#about-us` のような形であることを確認
             if (link.hash === `#${currentSectionId}`) {
                 link.classList.add('active');
             }
