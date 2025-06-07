@@ -1,180 +1,83 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMALL EARTH TRADING Co.,ltd - サービス案内</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="site-header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="logo-sme.jpg" alt="SMALL EARTH TRADING Co.,ltd logo">
-            </a>
-
-            <div class="header-controls">
-                <div class="language-switcher">
-                    <button class="lang-switch-btn" data-lang="ja">日本語</button>
-                    <button class="lang-switch-btn" data-lang="en">English</button>
-                </div>
-                <button class="menu-toggle" aria-expanded="false" aria-controls="mainNav">
-                    <span class="sr-only">メニュー開閉</span>
-                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-                </button>
-            </div>
-
-            <nav class="global-nav">
-                <ul id="mainNav">
-                    <li><a href="#about-us"><span class="lang-ja">私たちについて</span><span class="lang-en" style="display:none;">About Us</span></a></li>
-                    <li><a href="#price-list"><span class="lang-ja">料金表</span><span class="lang-en" style="display:none;">Price List</span></a></li>
-                    <li><a href="#flow"><span class="lang-ja">ご利用の流れ</span><span class="lang-en" style="display:none;">Flow</span></a></li>
-                    <li><a href="#case-study"><span class="lang-ja">導入事例</span><span class="lang-en" style="display:none;">Case Study</span></a></li>
-                    <li><a href="#faq"><span class="lang-ja">よくある質問</span><span class="lang-en" style="display:none;">FAQ</span></a></li>
-                    <li><a href="#contact"><span class="lang-ja">お問い合わせ</span><span class="lang-en" style="display:none;">Contact</span></a></li>
-                    <li><a href="#contact" class="nav-button"><span class="lang-ja">お申込み</span><span class="lang-en" style="display:none;">Request</span></a></li>
-                </ul>
-            </nav>
+<section id="price-list" class="section-padding">
+    <div class="container content-prose">
+        <h2><span class="lang-ja">料金表</span><span class="lang-en" style="display:none;">Price List</span></h2>
+        
+        <div class="price-category">
+            <h3><span class="lang-ja">航空便</span><span class="lang-en" style="display:none;">Air Freight</span></h3>
+            <table class="price-table">
+                <tbody>
+                    <tr>
+                        <th><span class="lang-ja">料金</span><span class="lang-en" style="display:none;">Price</span></th>
+                        <td><span class="lang-ja">1kgあたり <strong>35ドル</strong></span><span class="lang-en" style="display:none;"><strong>$35</strong> per kg</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <strong><span class="lang-ja">特徴:</span><span class="lang-en" style="display:none;">Features:</span></strong>
+                <span class="lang-ja"> お急ぎの場合や冷蔵・冷凍商品のご利用に最適です。</span>
+                <span class="lang-en" style="display:none;"> Ideal for urgent shipments or for refrigerated/frozen goods.</span>
+            </p>
+            <p>
+                <strong><span class="lang-ja">スケジュール:</span><span class="lang-en" style="display:none;">Schedule:</span></strong>
+                <span class="lang-ja"> 月曜日午前中までに当社倉庫へ到着 → 火曜日の午後にお届け（カンボジアの祝日を除く）。</span>
+                <span class="lang-en" style="display:none;"> Arrival at our warehouse by Monday morning → Delivery on Tuesday afternoon (excluding Cambodian holidays).</span>
+            </p>
         </div>
-    </header>
 
-    <main>
-        <section id="hero-top" class="hero-section section-padding">
-            <div class="container">
-                <h1>
-                    <span class="lang-ja">カンボジアへの輸出入を、<br class="sp-only">迅速かつ丁寧にお手伝い。</span>
-                    <span class="lang-en" style="display:none;">Fast and courteous support for your<br class="sp-only"> exports and imports to Cambodia.</span>
-                </h1>
-                <p>
-                    <span class="lang-ja">信頼と実績の物流サポートで、お客様のビジネスを力強くバックアップします。</span>
-                    <span class="lang-en" style="display:none;">We strongly back up your business with reliable and proven logistics support.</span>
-                </p>
-                <a href="#contact" class="cta-button">
-                    <span class="lang-ja">TELEGRAMでお申込み・ご相談ください</span>
-                    <span class="lang-en" style="display:none;">Please Apply / Consult on TELEGRAM</span>
-                </a>
-            </div>
-        </section>
+        <div class="price-category">
+            <h3><span class="lang-ja">船便</span><span class="lang-en" style="display:none;">Sea Freight</span></h3>
+            
+            <h4><span class="lang-ja">小口輸送</span><span class="lang-en" style="display:none;">Small Lot (LCL)</span></h4>
+            <table class="price-table-visual">
+                <tbody>
+                    <tr>
+                        <td><span class="lang-ja">120サイズ以下</span><span class="lang-en" style="display:none;">Up to 120cm size</span></td>
+                        <td><span class="lang-ja">1箱 <strong>50ドル</strong></span><span class="lang-en" style="display:none;"><strong>$50</strong> per box</span></td>
+                        <td><img src="120size-image.jpg" alt="120サイズ箱のイメージ" class="price-image"></td>
+                    </tr>
+                    <tr>
+                        <td><span class="lang-ja">160サイズ以下</span><span class="lang-en" style="display:none;">Up to 160cm size</span></td>
+                        <td><span class="lang-ja">1箱 <strong>100ドル</strong></span><span class="lang-en" style="display:none;"><strong>$100</strong> per box</span></td>
+                        <td><img src="160size-image.jpg" alt="160サイズ箱のイメージ" class="price-image"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="price-table">
+                <tbody>
+                    <tr>
+                        <th><span class="lang-ja">0.5m³ 以上</span><span class="lang-en" style="display:none;">0.5m³ or more</span></th>
+                        <td>
+                            <span class="lang-ja"><strong>350ドル</strong><br>（以降0.1m³あたり 70ドル）</span>
+                            <span class="lang-en" style="display:none;"><strong>$350</strong><br>(then $70 per additional 0.1m³)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <section id="about-us" class="section-padding">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">私たちについて</span><span class="lang-en" style="display:none;">About Us</span></h2>
-                <p><span class="lang-ja">SMALL EARTH TRADING Co.,ltd は、カンボジアとの貿易を専門とする物流サポート企業です。複雑な輸出入プロセスを簡素化し、お客様のビジネスが円滑に進むよう、きめ細やかなサービスを提供することを使命としています。</span><span class="lang-en" style="display:none;">SMALL EARTH TRADING Co.,ltd is a logistics support company specializing in trade with Cambodia. Our mission is to simplify the complex import/export process and provide detailed services to ensure your business runs smoothly.</span></p>
-            </div>
-        </section>
+            <h4><span class="lang-ja">大口輸送</span><span class="lang-en" style="display:none;">Large Lot (FCL)</span></h4>
+            <table class="price-table">
+                 <tbody>
+                    <tr>
+                        <th><span class="lang-ja">2m³ 以上</span><span class="lang-en" style="display:none;">2m³ or more</span></th>
+                        <td><span class="lang-ja">要相談</span><span class="lang-en" style="display:none;">Please Inquire</span></td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <section id="line-for-customers" class="section-padding-alt">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">既存のお客様へ</span><span class="lang-en" style="display:none;">To Our Valued Customers</span></h2>
-                <p><span class="lang-ja">いつもご利用いただきありがとうございます。お得な情報や臨時便のお知らせを配信するLINE公式アカウントを開設しました。ぜひご登録ください。</span><span class="lang-en" style="display:none;">Thank you for your continued business. We have launched our LINE Official Account to send you special deals and announcements. Please join us!</span></p>
-                
-                <div class="video-container">
-                    <video src="path/to/your/line_intro_video.mp4" poster="path/to/your/video_poster.jpg" controls playsinline muted loop>
-                        <span class="lang-ja">お使いのブラウザはビデオ再生に対応していません。</span>
-                        <span class="lang-en" style="display:none;">Your browser does not support the video tag.</span>
-                    </video>
-                </div>
-
-                <div class="line-contact">
-                    <p><strong><span class="lang-ja">↓ご登録はこちらから↓</span><span class="lang-en" style="display:none;">↓Register here↓</span></strong></p>
-                    <a href="https://line.me/R/ti/p/@314vujlc" target="_blank" rel="noopener noreferrer" class="line-link">
-                        <img src="path/to/your/line_qr.png" alt="LINE QR Code" class="qr-code">
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="price-list" class="section-padding">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">料金表</span><span class="lang-en" style="display:none;">Price List</span></h2>
-                <div class="price-category">
-                    <h3><span class="lang-ja">航空便</span><span class="lang-en" style="display:none;">Air Freight</span></h3>
-                    <table class="price-table">
-                        <tbody>
-                            <tr>
-                                <th><span class="lang-ja">料金</span><span class="lang-en" style="display:none;">Price</span></th>
-                                <td><span class="lang-ja">1kgあたり <strong>35ドル</strong></span><span class="lang-en" style="display:none;"><strong>$35</strong> per kg</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p><strong><span class="lang-ja">特徴:</span><span class="lang-en" style="display:none;">Features:</span></strong><span class="lang-ja"> お急ぎの場合や冷蔵・冷凍商品のご利用に最適です。</span><span class="lang-en" style="display:none;"> Ideal for urgent shipments or for refrigerated/frozen goods.</span></p>
-                    <p><strong><span class="lang-ja">スケジュール:</span><span class="lang-en" style="display:none;">Schedule:</span></strong><span class="lang-ja"> 月曜日午前中までに当社倉庫へ到着 → 火曜日の午後にお届け（カンボジアの祝日を除く）。</span><span class="lang-en" style="display:none;"> Arrival at our warehouse by Monday morning → Delivery on Tuesday afternoon (excluding Cambodian holidays).</span></p>
-                </div>
-                <div class="price-category">
-                    <h3><span class="lang-ja">船便</span><span class="lang-en" style="display:none;">Sea Freight</span></h3>
-                    <h4><span class="lang-ja">小口輸送</span><span class="lang-en" style="display:none;">Small Lot (LCL)</span></h4>
-                    <table class="price-table-visual">
-                        <tbody>
-                            <tr>
-                                <td><span class="lang-ja">120サイズ以下</span><span class="lang-en" style="display:none;">Up to 120cm size</span></td>
-                                <td><span class="lang-ja">1箱 <strong>50ドル</strong></span><span class="lang-en" style="display:none;"><strong>$50</strong> per box</span></td>
-                                <td><img src="120size-image.jpg" alt="120サイズ箱のイメージ" class="price-image"></td>
-                            </tr>
-                            <tr>
-                                <td><span class="lang-ja">160サイズ以下</span><span class="lang-en" style="display:none;">Up to 160cm size</span></td>
-                                <td><span class="lang-ja">1箱 <strong>100ドル</strong></span><span class="lang-en" style="display:none;"><strong>$100</strong> per box</span></td>
-                                <td><img src="160size-image.jpg" alt="160サイズ箱のイメージ" class="price-image"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <section id="flow" class="section-padding-alt">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">ご利用の流れ</span><span class="lang-en" style="display:none;">Service Flow</span></h2>
-                <p><a href="path/to/your/flow_document.pdf" target="_blank" class="link-button"><span class="lang-ja">ご利用の流れ (PDF) はこちら</span><span class="lang-en" style="display:none;">View Service Flow (PDF)</span></a></p>
-            </div>
-        </section>
-
-        <section id="case-study" class="section-padding">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">導入事例</span><span class="lang-en" style="display:none;">Case Studies</span></h2>
-                 <article class="case-item">
-                    <h3><span class="lang-ja">ケース１: 自社製品をカンボジア向けに輸出</span><span class="lang-en" style="display:none;">Case 1: Exporting original products to Cambodia</span></h3>
-                    <p><strong><span class="lang-ja">お客様の課題:</span><span class="lang-en" style="display:none;">Client's Challenge:</span></strong><span class="lang-ja"> テストマーケティングのために自社製品をカンボジアへ輸出したいが、手続き方法がわからず不安。</span><span class="lang-en" style="display:none;"> Wanted to export their own products to Cambodia for test marketing but was unsure and anxious about the procedures.</span></p>
-                    <p><strong><span class="lang-ja">提案と結果:</span><span class="lang-en" style="display:none;">Our Solution:</span></strong><span class="lang-ja"> 弊社が書類作成から現地配送までを一貫してサポート。初めての輸出でも安心して進められるよう、煩雑な手続きをすべて代行し、ご希望通りのスケジュールで納品準備を整えました。</span><span class="lang-en" style="display:none;"> We provided end-to-end support from documentation to local delivery. We handled all complex procedures so they could proceed with confidence even on their first export, and prepared the delivery according to their desired schedule.</span></p>
-                </article>
-                <article class="case-item">
-                    <h3><span class="lang-ja">ケース２: 店舗用の物資をまとめて輸送</span><span class="lang-en" style="display:none;">Case 2: Bulk transportation of store supplies</span></h3>
-                    <p><strong><span class="lang-ja">お客様の課題:</span><span class="lang-en" style="display:none;">Client's Challenge:</span></strong><span class="lang-ja"> 海外店舗で使用する備品や資材をまとめて送りたいが、輸送コストを抑えたい。</span><span class="lang-en" style="display:none;"> Wanted to send fixtures and materials for their overseas store in bulk but needed to keep transportation costs down.</span></p>
-                    <p><strong><span class="lang-ja">提案と結果:</span><span class="lang-en" style="display:none;">Our Solution:</span></strong><span class="lang-ja"> 弊社では重量ではなく「体積」に基づいた見積もりを採用しており、密度の高い商品（液体類、金属加工品など）を送るのに最適です。お客様には段ボールにお好きな物を詰めていただき、効率的かつ経済的に輸送ができる方法をご案内しました。「自由度が高く、コストパフォーマンスも良い」とご好評をいただいています。</span><span class="lang-en" style="display:none;"> We use quotes based on "volume" rather than weight, which is ideal for sending high-density items (liquids, processed metal goods, etc.). We advised the customer that they could pack whatever they liked into cardboard boxes, and guided them on an efficient and economical method of transport. We have received positive feedback for the "high degree of freedom and excellent cost performance."</span></p>
-                </article>
-            </div>
-        </section>
-
-        <section id="faq" class="section-padding-alt">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">よくあるご質問</span><span class="lang-en" style="display:none;">FAQ</span></h2>
-                <div class="faq-item">
-                    <h3><span class="lang-ja">Q. 少量の荷物でも利用できますか？</span><span class="lang-en" style="display:none;">Q. Can I use the service for a small amount of luggage?</span></h3>
-                    <p><span class="lang-ja">A. はい、少量の荷物でも対応可能です。段ボール１つからでもお申込いただけます。</span><span class="lang-en" style="display:none;">A. Yes, we can handle small shipments. You can apply for as little as one cardboard box.</span></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section-padding hero-section">
-            <div class="container content-prose">
-                <h2><span class="lang-ja">お問い合わせ・お申込み</span><span class="lang-en" style="display:none;">Contact & Request</span></h2>
-                <p>
-                    <span class="lang-ja">お申込み、ご相談、その他お問い合わせは、下記のTelegram QRコードをスキャンしてご連絡ください。</span>
-                    <span class="lang-en" style="display:none;">For applications, consultations, or other inquiries, please scan the Telegram QR code below to contact us.</span>
-                </p>
-                <div class="contact-qr-container">
-                    <img src="telegram.jpg" alt="Telegram QR Code" class="qr-code-large">
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer-bottom">
-        <div class="container">
-            <p>&copy; 2025 SMALL EARTH TRADING Co.,ltd. All Rights Reserved.</p>
+            <p>
+                <strong><span class="lang-ja">特徴:</span><span class="lang-en" style="display:none;">Features:</span></strong>
+                <span class="lang-ja"> 液体物や金属加工品など、密度の高い商品を送る場合にコストメリットが大きいです。</span>
+                <span class="lang-en" style="display:none;"> Highly cost-effective for sending high-density items such as liquids and metal products.</span>
+            </p>
+            <p>
+                <strong><span class="lang-ja">スケジュール:</span><span class="lang-en" style="display:none;">Schedule:</span></strong>
+            </p>
+            <ul>
+                <li><span class="lang-ja">申込締切り: 毎月15日</span><span class="lang-en" style="display:none;">Application Deadline: 15th of each month</span></li>
+                <li><span class="lang-ja">積み込み: 締切り翌週の火曜日</span><span class="lang-en" style="display:none;">Loading: Tuesday of the week following the deadline</span></li>
+                <li><span class="lang-ja">出港: 締切り翌週の木曜日</span><span class="lang-en" style="display:none;">Departure: Thursday of the week following the deadline</span></li>
+                <li><span class="lang-ja">臨時便: 月末締切りで運航する場合あり</span><span class="lang-en" style="display:none;">Special Shipments: Available with a deadline at the end of the month</span></li>
+            </ul>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    </div>
+</section>
