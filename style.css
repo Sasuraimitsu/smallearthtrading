@@ -63,56 +63,18 @@ img { max-width: 100%; height: auto; }
     display: flex;
     align-items: center;
 }
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-.logo {
-    flex-shrink: 0;
-}
-.logo img {
-    height: 45px;
-    width: auto;
-    display: block;
-}
+.header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo { flex-shrink: 0; }
+.logo img { height: 45px; width: auto; display: block; }
 
-.header-controls {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-.language-switcher {
-    margin-right: 15px;
-}
-.lang-switch-btn {
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    margin-left: 5px;
-    border-radius: 3px;
-    transition: background-color 0.3s, color 0.3s;
-}
-.lang-switch-btn:hover,
-.lang-switch-btn.active {
-    background-color: var(--primary-color);
-    color: white;
-}
+.header-controls { display: flex; align-items: center; margin-left: auto; }
+.language-switcher { margin-right: 15px; }
+.lang-switch-btn { background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); padding: 5px 10px; cursor: pointer; font-size: 0.85rem; margin-left: 5px; border-radius: 3px; transition: background-color 0.3s, color 0.3s; }
+.lang-switch-btn:hover, .lang-switch-btn.active { background-color: var(--primary-color); color: white; }
 
 .global-nav ul { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; }
 .global-nav li { margin-left: 15px; }
-.global-nav a {
-    color: var(--text-color);
-    font-weight: 700; /* 文字を太くして視認性を向上 */
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: color 0.3s, background-color 0.3s;
-    white-space: nowrap; /* メニューが改行しないように */
-}
+.global-nav a { color: var(--text-color); font-weight: 700; padding: 5px 10px; border-radius: 4px; transition: color 0.3s, background-color 0.3s; white-space: nowrap; }
 .global-nav a:hover, .global-nav a:focus, .global-nav a.active { color: var(--secondary-color); background-color: #eafaf1; }
 .nav-button { background-color: var(--secondary-color); color: white !important; padding: 8px 15px !important; border-radius: 5px; font-weight: bold; }
 .nav-button:hover, .nav-button:focus { background-color: #27ae60; color: white !important; text-decoration: none; }
@@ -148,9 +110,28 @@ img { max-width: 100%; height: auto; }
 .phone-numbers { margin: 1em 0; }
 .phone-numbers p { margin-bottom: 0.5em; }
 
-.social-contact { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px; }
-.social-item { flex: 1; min-width: 200px; }
+.social-contact { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px; justify-content: center; } /* 中央寄せに変更 */
+.social-item { flex: 1; min-width: 200px; max-width: 250px; text-align: center; } /* 中央寄せにして最大幅を設定 */
 .qr-code { width: 120px; height: 120px; border: 1px solid #eee; margin-top: 5px; }
+
+/* ★ 新しいセクションのスタイルを追加 ★ */
+#promotion .content-prose h2 { text-align: center; } /* このセクションの見出しは中央寄せに */
+.promo-video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.line-promotion {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--light-gray-bg);
+    border-radius: 8px;
+    text-align: center;
+}
 
 /* フッター */
 .site-footer-bottom { background-color: #333; color: #f0f0f0; text-align: center; padding: 20px 0; font-size: 0.9rem; }
