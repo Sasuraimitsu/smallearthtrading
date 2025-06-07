@@ -30,7 +30,7 @@ body {
     margin: 0 auto;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: var(--heading-font);
     font-weight: 700;
     color: var(--primary-color);
@@ -39,7 +39,8 @@ h1, h2, h3 {
 }
 h1 { font-size: 2.2rem; line-height: 1.3; }
 h2 { font-size: 1.8rem; margin-bottom: 1em; text-align: center;}
-h3 { font-size: 1.4rem; color: var(--secondary-color); }
+h3 { font-size: 1.5rem; color: var(--secondary-color); border-bottom: 2px solid var(--light-gray-bg); padding-bottom: 10px; }
+h4 { font-size: 1.2rem; color: var(--text-color); margin-top: 2em; }
 
 p { margin-bottom: 1em; }
 a { color: var(--primary-color); text-decoration: none; }
@@ -66,19 +67,16 @@ img { max-width: 100%; height: auto; }
 .header-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 .logo { flex-shrink: 0; }
 .logo img { height: 45px; width: auto; display: block; }
-
 .header-controls { display: flex; align-items: center; margin-left: auto; }
 .language-switcher { margin-right: 15px; }
 .lang-switch-btn { background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); padding: 5px 10px; cursor: pointer; font-size: 0.85rem; margin-left: 5px; border-radius: 3px; transition: background-color 0.3s, color 0.3s; }
 .lang-switch-btn:hover, .lang-switch-btn.active { background-color: var(--primary-color); color: white; }
-
 .global-nav ul { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; }
 .global-nav li { margin-left: 15px; }
 .global-nav a { color: var(--text-color); font-weight: 700; padding: 5px 10px; border-radius: 4px; transition: color 0.3s, background-color 0.3s; white-space: nowrap; }
 .global-nav a:hover, .global-nav a:focus, .global-nav a.active { color: var(--secondary-color); background-color: #eafaf1; }
 .nav-button { background-color: var(--secondary-color); color: white !important; padding: 8px 15px !important; border-radius: 5px; font-weight: bold; }
 .nav-button:hover, .nav-button:focus { background-color: #27ae60; color: white !important; text-decoration: none; }
-
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 10px; }
 .menu-toggle .bar { display: block; width: 22px; height: 2px; background-color: var(--text-color); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
 
@@ -90,7 +88,6 @@ img { max-width: 100%; height: auto; }
 .hero-section { background-color: var(--primary-color); color: white; text-align: center; }
 .hero-section h1, .hero-section h2 { color: white; }
 .hero-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5em;}
-
 .cta-button { display: inline-block; background-color: var(--secondary-color); color: white; padding: 12px 28px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 5px; transition: background-color 0.3s ease, transform 0.2s ease; }
 .cta-button:hover, .cta-button:focus { background-color: #27ae60; transform: translateY(-2px); color: white; text-decoration: none; }
 .link-button { display: inline-block; background-color: var(--primary-color); color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; transition: background-color 0.3s; }
@@ -100,38 +97,37 @@ img { max-width: 100%; height: auto; }
 .content-prose { max-width: 720px; margin-left: auto; margin-right: auto; }
 .content-prose h2 { text-align: left; }
 .content-prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.5em; }
-.content-prose th, .content-prose td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+.content-prose th, .content-prose td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: middle; }
 .content-prose th { background-color: #f0f0f0; font-weight: bold; }
+
+/* 新設：LINE紹介セクション */
+.video-container {
+    margin: 20px 0;
+    text-align: center;
+}
+.video-container video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.line-contact { text-align: center; margin-top: 20px; }
+.line-link { display: inline-block; }
+
+/* 料金表セクション */
+.price-category { margin-bottom: 40px; }
+.price-table, .price-table-visual { width: 100%; }
+.price-table-visual td { text-align: center; }
+.price-image { max-width: 80px; height: auto; }
+.price-table strong, .price-table-visual strong { font-size: 1.2em; color: var(--primary-color); }
 
 /* 事例、FAQ、連絡先 */
 .case-item, .faq-item { background-color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
 .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.3em; color: var(--primary-color);}
 .faq-more { margin-top: 30px; text-align: center; font-size: 1.1em; }
-.phone-numbers { margin: 1em 0; }
-.phone-numbers p { margin-bottom: 0.5em; }
-
-.social-contact { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px; justify-content: center; } /* 中央寄せに変更 */
-.social-item { flex: 1; min-width: 200px; max-width: 250px; text-align: center; } /* 中央寄せにして最大幅を設定 */
-.qr-code { width: 120px; height: 120px; border: 1px solid #eee; margin-top: 5px; }
-
-/* ★ 新しいセクションのスタイルを追加 ★ */
-#promotion .content-prose h2 { text-align: center; } /* このセクションの見出しは中央寄せに */
-.promo-video {
-    width: 100%;
-    max-width: 640px;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-.line-promotion {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: var(--light-gray-bg);
-    border-radius: 8px;
-    text-align: center;
-}
+.contact-qr-container { text-align: center; margin-top: 30px; }
+.qr-code { width: 140px; height: 140px; border: 1px solid #eee; }
+.qr-code-large { width: 200px; height: 200px; border: 3px solid white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
 /* フッター */
 .site-footer-bottom { background-color: #333; color: #f0f0f0; text-align: center; padding: 20px 0; font-size: 0.9rem; }
@@ -141,7 +137,6 @@ img { max-width: 100%; height: auto; }
     html { font-size: 15px; }
     .sp-only { display: block; }
     .container { width: 95%; }
-
     .menu-toggle { display: block; }
     .global-nav { position: absolute; top: var(--header-height); left: 0; width: 100%; }
     .global-nav ul { display: none; flex-direction: column; background-color: white; box-shadow: 0 3px 5px rgba(0,0,0,0.1); padding: 10px 0; border-top: 1px solid #eee; }
@@ -149,12 +144,10 @@ img { max-width: 100%; height: auto; }
     .global-nav li { margin: 0; width: 100%; }
     .global-nav a { display: block; padding: 12px 20px; text-align: left; border-bottom: 1px solid #f0f0f0; width: 100%; box-sizing: border-box; }
     .nav-button { width: auto; margin: 10px 20px; text-align: center; }
-
     .header-controls { order: 1; }
     .global-nav { order: 2; }
     .logo { order: 0; }
     .logo img { height: 40px; }
-
     h1 { font-size: 1.8rem; }
     h2 { font-size: 1.6rem; }
 }
