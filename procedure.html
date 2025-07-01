@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お手続きの流れ - SMALL EARTH TRADING Co.,ltd</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to match the provided website's aesthetic */
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray background */
+            color: #2d3748; /* Dark gray text */
+        }
+        .site-header {
+            background-color: #ffffff; /* White header background */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo img {
+            height: 40px; /* Adjust as needed */
+            border-radius: 8px; /* Rounded corners for logo */
+        }
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .language-switcher button {
+            background-color: #edf2f7; /* Light gray button */
+            color: #4a5568; /* Darker gray text */
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .language-switcher button.active {
+            background-color: #4299e1; /* Blue for active language */
+            color: #ffffff;
+        }
+        .language-switcher button:hover:not(.active) {
+            background-color: #e2e8f0;
+        }
+        .nav-button {
+            background-color: #4299e1; /* Blue button */
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .nav-button:hover {
+            background-color: #2b6cb0; /* Darker blue on hover */
+        }
+        .section-padding {
+            padding: 3rem 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .procedure-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .procedure-header h2 {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        .procedure-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; /* Space between steps */
+        }
+        .procedure-step {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        .step-number {
+            font-size: 2.5rem; /* text-5xl */
+            font-weight: 700; /* font-bold */
+            color: #4299e1; /* Blue color */
+            flex-shrink: 0;
+            line-height: 1;
+            padding-top: 0.25rem; /* Align number with text */
+        }
+        .step-content h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        .step-content p {
+            font-size: 1.125rem; /* text-lg */
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        .site-footer-bottom {
+            background-color: #2d3748; /* Dark blue-gray footer */
+            color: #a0aec0; /* Light gray text */
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .site-footer-bottom p {
+            font-size: 0.875rem; /* text-sm */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .header-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .procedure-step {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .step-number {
+                padding-top: 0;
+            }
+            .procedure-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <!-- Placeholder for logo image, assuming logo-sme.jpg exists in the same directory -->
+                <img src="https://placehold.co/150x40/E2E8F0/4A5568?text=LOGO" alt="SMALL EARTH TRADING Co.,ltd logo" onerror="this.onerror=null;this.src='https://placehold.co/150x40/E2E8F0/4A5568?text=LOGO';">
+            </a>
+            <div class="header-controls">
+                <div class="language-switcher">
+                    <button class="lang-switch-btn active" data-lang="ja">日本語</button>
+                    <button class="lang-switch-btn" data-lang="en">English</button>
+                </div>
+                <a href="index.html" class="nav-button">
+                    <span class="lang-ja">ホームへ戻る</span>
+                    <span class="lang-en" style="display:none;">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="procedure-page">
+        <section class="section-padding">
+            <div class="container">
+                <div class="procedure-header">
+                    <h2><span class="lang-ja">お手続きの流れ</span><span class="lang-en" style="display:none;">Procedure Flow</span></h2>
+                </div>
+
+                <div class="procedure-list">
+                    <!-- Step 1 -->
+                    <div class="procedure-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3><span class="lang-ja">Required Formよりお申込</span><span class="lang-en" style="display:none;">Application via Required Form</span></h3>
+                            <p><span class="lang-ja">当サイトの「Required Form」より、必要事項をご記入の上、お申し込みください。</span><span class="lang-en" style="display:none;">Please apply by filling out the necessary information on the "Required Form" on our website.</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="procedure-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3><span class="lang-ja">輸出荷物情報リストへのご記入</span><span class="lang-en" style="display:none;">Filling out the Shipping Cargo Information List</span></h3>
+                            <p><span class="lang-ja">お申し込み完了後、弊社より「輸送荷物情報入力シート」を送信いたしますので、お荷物の詳細情報をご記入ください。</span><span class="lang-en" style="display:none;">After completing your application, we will send you a "Shipping Cargo Information Sheet." Please fill in the detailed information about your cargo.</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="procedure-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3><span class="lang-ja">荷物の発送</span><span class="lang-en" style="display:none;">Shipping the Cargo</span></h3>
+                            <p><span class="lang-ja">ご記入いただいた情報に基づき、ご希望のサービス（航空便または船便）に応じた当社の国内倉庫へお荷物をお送りください。</span><span class="lang-en" style="display:none;">Based on the information you provided, please send your cargo to our domestic warehouse according to your chosen service (Air Freight or Sea Freight).</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="procedure-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3><span class="lang-ja">進捗状況のお知らせ</span><span class="lang-en" style="display:none;">Progress Notifications</span></h3>
+                            <p><span class="lang-ja">貨物の状況に応じて、出港、途中航行、到着の各段階で進捗をご案内いたします。</span><span class="lang-en" style="display:none;">We will notify you of the progress at each stage: departure, in-transit, and arrival, depending on the cargo status.</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="procedure-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3><span class="lang-ja">荷物のお受取</span><span class="lang-en" style="display:none;">Receipt of Cargo</span></h3>
+                            <p><span class="lang-ja">カンボジア現地での検品が完了した後、お客様の元へ安全にお荷物をお届けいたします。</span><span class="lang-en" style="display:none;">After the inspection is completed locally in Cambodia, your cargo will be safely delivered to you.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; 2025 SMALL EARTH TRADING Co.,ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const langButtons = document.querySelectorAll('.lang-switch-btn');
+            const langElementsJa = document.querySelectorAll('.lang-ja');
+            const langElementsEn = document.querySelectorAll('.lang-en');
+
+            function setLanguage(lang) {
+                langButtons.forEach(button => {
+                    if (button.dataset.lang === lang) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+
+                if (lang === 'ja') {
+                    langElementsJa.forEach(el => el.style.display = 'inline');
+                    langElementsEn.forEach(el => el.style.display = 'none');
+                } else {
+                    langElementsJa.forEach(el => el.style.display = 'none');
+                    langElementsEn.forEach(el => el.style.display = 'inline');
+                }
+            }
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    setLanguage(button.dataset.lang);
+                });
+            });
+
+            // Set default language on load (Japanese)
+            setLanguage('ja');
+        });
+    </script>
+</body>
+</html>
