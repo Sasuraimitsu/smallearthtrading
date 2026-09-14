@@ -1,59 +1,96 @@
-<header>
+# SMALL EARTH TRADING Co.,ltd — コーポレートサイト
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+カンボジア向け輸出入・物流サポートのサービス案内サイトです。
+GitHub Pages で公開しています。
 
-# GitHub Pages
+**公開URL:** https://sasuraimitsu.github.io/smallearthtrading/
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+## 構成
 
-</header>
+静的HTMLのみで、ビルド作業は不要です。ファイルを編集してコミットすれば、
+数分後に公開サイトへ反映されます。
 
-<!--
-  <<< Author notes: Step 2 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked for empty pull request, changed to the correct theme `minima`.
--->
+| ファイル | 内容 |
+| --- | --- |
+| `index.html` | トップページ（お知らせ・料金表・ご利用の流れ・導入事例・FAQ・お問い合わせ） |
+| `procedure.html` | お手続きの流れ |
+| `important-matters.html` | 重要事項説明 |
+| `faq-more.html` | よくあるご質問（検索機能つき） |
+| `style.css` | 全ページ共通のスタイル |
+| `script.js` | 全ページ共通のスクリプト（言語切り替え・ナビ・スクロール連動） |
 
-## Step 2: Configure your site
+画像・動画はリポジトリ直下に置いています。
 
-_You turned on GitHub Pages! :tada:_
+## 日本語 / 英語の切り替えについて
 
-We'll work in a branch, `my-pages`, that I created for you to get this site looking great. :sparkle:
+**JavaScript は `<html>` の `lang` 属性を書き替えるだけ**で、実際の表示・非表示は
+`style.css` の以下のルールが担当しています。
 
-Jekyll uses a file titled `_config.yml` to store settings for your site, your theme, and reusable content like your site title and GitHub handle. You can check out the `_config.yml` file on the **Code** tab of your repository.
+```css
+html[lang="ja"] .lang-en,
+html[lang="en"] .lang-ja { display: none; }
+```
 
-We need to use a blog-ready theme. For this activity, we will use a theme named "minima".
+文章を追加するときは、日本語と英語をそれぞれ `lang-ja` / `lang-en` クラスで囲みます。
 
-### :keyboard: Activity: Configure your site
+```html
+<p>
+    <span class="lang-ja">日本語の本文</span>
+    <span class="lang-en">English text</span>
+</p>
+```
 
-1. Browse to the `_config.yml` file in the `my-pages` branch.
-1. In the upper right corner, open the file editor.
-1. Add a `theme:` set to **minima** so it shows in the `_config.yml` file as below:
-   ```yml
-   theme: minima
-   ```
-1. (optional) You can modify the other configuration variables such as `title:`, `author:`, and `description:` to further customize your site.
-1. Commit your changes.
-1. (optional) Create a pull request to view all the changes you'll make throughout this course. Click the **Pull Requests** tab, click **New pull request**, set `base: main` and `compare:my-pages`.
-1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+> **注意**
+> HTML 側に `style="display:none;"` を直接書かないでください。
+> CSS 側の制御と競合し、切り替えが効かなくなります。
 
-<footer>
+ページタイトルは `<html>` タグの属性で指定します。
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+```html
+<html lang="ja" data-title-ja="ページ名 - SMALL EARTH TRADING Co.,ltd"
+                data-title-en="Page Name - SMALL EARTH TRADING Co.,ltd">
+```
 
----
+入力欄の `placeholder` を切り替えたい場合は `data-placeholder-ja` /
+`data-placeholder-en` を使います。
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+## よくある更新作業
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+### 料金を変更する
 
-</footer>
+`index.html` の `<section id="price-list">` 内を編集します。
+金額は料金表の1か所にのみ記載し、お知らせ欄などからは料金表へリンクしてください。
+同じ数字を複数箇所に書くと、改定時に片方だけ直し忘れる原因になります。
+
+### お知らせを追加する
+
+`index.html` の `<section id="news">` 内にある `<article class="news-item">`
+ブロックを丸ごとコピーし、**新しいものを上に**置いて内容を差し替えます。
+目印として `▼ 新しいお知らせは…▲` というコメントを入れてあります。
+
+日付は表示テキストと `<time datetime="YYYY-MM-DD">` の両方を更新してください。
+
+### 便のスケジュール
+
+料金表に記載しているのは原則のサイクルです。
+各便の確定日程はお知らせ欄と公式LINEで案内する運用のため、
+毎月の日付は料金表側を書き換える必要はありません。
+
+## 動作確認
+
+ローカルでは HTML ファイルをブラウザで直接開けば確認できます。
+言語設定は `localStorage` に保存されるため、切り替えの挙動を初期状態から
+試したい場合は、開発者ツールのコンソールで以下を実行してください。
+
+```js
+localStorage.removeItem('preferredLanguage'); location.reload();
+```
+
+## 未対応の課題
+
+- `procedure.html` と `faq-more.html` が Tailwind CDN + ページ内 `<style>` を使っており、
+  他の2ページ（`style.css`）と実装が分かれている
+- `meta description` / OGP / favicon / canonical が未設定
+- `robots.txt` / `sitemap.xml` / `404.html` が未作成
+- `<img>` に `width` / `height` 属性がなく、読み込み時にレイアウトが動く
+- 動画（約3.4MB）に `preload="none"` が未指定

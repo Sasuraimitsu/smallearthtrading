@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-title-ja="お手続きの流れ - SMALL EARTH TRADING Co.,ltd" data-title-en="Procedure Flow - SMALL EARTH TRADING Co.,ltd">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>/* 表示前に言語を確定させ、日英が一瞬二重表示されるのを防ぐ */
+    try{var _l=localStorage.getItem("preferredLanguage");document.documentElement.lang=(_l==="en"||_l==="ja")?_l:"ja";}catch(e){}</script>
     <title>お手続きの流れ - SMALL EARTH TRADING Co.,ltd</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -147,6 +149,10 @@
                 font-size: 2rem;
             }
         }
+
+        /* ===== 言語切り替え（style.css と同じルール） ===== */
+        html[lang="ja"] .lang-en,
+        html[lang="en"] .lang-ja { display: none; }
     </style>
 </head>
 <body>
@@ -164,7 +170,7 @@
                 </div>
                 <a href="index.html" class="nav-button">
                     <span class="lang-ja">ホームへ戻る</span>
-                    <span class="lang-en" style="display:none;">Back to Home</span>
+                    <span class="lang-en">Back to Home</span>
                 </a>
             </div>
         </div>
@@ -174,7 +180,7 @@
         <section class="section-padding">
             <div class="container">
                 <div class="procedure-header">
-                    <h2><span class="lang-ja">お手続きの流れ</span><span class="lang-en" style="display:none;">Procedure Flow</span></h2>
+                    <h2><span class="lang-ja">お手続きの流れ</span><span class="lang-en">Procedure Flow</span></h2>
                 </div>
 
                 <div class="procedure-list">
@@ -182,8 +188,8 @@
                     <div class="procedure-step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h3><span class="lang-ja">Required Formよりお申込</span><span class="lang-en" style="display:none;">Application via Required Form</span></h3>
-                            <p><span class="lang-ja">当サイトの「Required Form」より、必要事項をご記入の上、お申し込みください。</span><span class="lang-en" style="display:none;">Please apply by filling out the necessary information on the "Required Form" on our website.</span></p>
+                            <h3><span class="lang-ja">Required Formよりお申込</span><span class="lang-en">Application via Required Form</span></h3>
+                            <p><span class="lang-ja">当サイトの「Required Form」より、必要事項をご記入の上、お申し込みください。</span><span class="lang-en">Please apply by filling out the necessary information on the "Required Form" on our website.</span></p>
                         </div>
                     </div>
 
@@ -191,8 +197,8 @@
                     <div class="procedure-step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3><span class="lang-ja">輸出荷物情報リストへのご記入</span><span class="lang-en" style="display:none;">Filling out the Shipping Cargo Information List</span></h3>
-                            <p><span class="lang-ja">お申し込み完了後、弊社より「輸送荷物情報入力シート」を送信いたしますので、お荷物の詳細情報をご記入ください。</span><span class="lang-en" style="display:none;">After completing your application, we will send you a "Shipping Cargo Information Sheet." Please fill in the detailed information about your cargo.</span></p>
+                            <h3><span class="lang-ja">輸出荷物情報リストへのご記入</span><span class="lang-en">Filling out the Shipping Cargo Information List</span></h3>
+                            <p><span class="lang-ja">お申し込み完了後、弊社より「輸送荷物情報入力シート」を送信いたしますので、お荷物の詳細情報をご記入ください。</span><span class="lang-en">After completing your application, we will send you a "Shipping Cargo Information Sheet." Please fill in the detailed information about your cargo.</span></p>
                         </div>
                     </div>
 
@@ -200,8 +206,8 @@
                     <div class="procedure-step">
                         <div class="step-number">3</div>
                         <div class="step-content">
-                            <h3><span class="lang-ja">荷物の発送</span><span class="lang-en" style="display:none;">Shipping the Cargo</span></h3>
-                            <p><span class="lang-ja">ご記入いただいた情報に基づき、ご希望のサービス（航空便または船便）に応じた当社の国内倉庫へお荷物をお送りください。</span><span class="lang-en" style="display:none;">Based on the information you provided, please send your cargo to our domestic warehouse according to your chosen service (Air Freight or Sea Freight).</span></p>
+                            <h3><span class="lang-ja">荷物の発送</span><span class="lang-en">Shipping the Cargo</span></h3>
+                            <p><span class="lang-ja">ご記入いただいた情報に基づき、ご希望のサービス（航空便または船便）に応じた当社の国内倉庫へお荷物をお送りください。</span><span class="lang-en">Based on the information you provided, please send your cargo to our domestic warehouse according to your chosen service (Air Freight or Sea Freight).</span></p>
                         </div>
                     </div>
 
@@ -209,8 +215,8 @@
                     <div class="procedure-step">
                         <div class="step-number">4</div>
                         <div class="step-content">
-                            <h3><span class="lang-ja">進捗状況のお知らせ</span><span class="lang-en" style="display:none;">Progress Notifications</span></h3>
-                            <p><span class="lang-ja">貨物の状況に応じて、出港、途中航行、到着の各段階で進捗をご案内いたします。</span><span class="lang-en" style="display:none;">We will notify you of the progress at each stage: departure, in-transit, and arrival, depending on the cargo status.</span></p>
+                            <h3><span class="lang-ja">進捗状況のお知らせ</span><span class="lang-en">Progress Notifications</span></h3>
+                            <p><span class="lang-ja">貨物の状況に応じて、出港、途中航行、到着の各段階で進捗をご案内いたします。</span><span class="lang-en">We will notify you of the progress at each stage: departure, in-transit, and arrival, depending on the cargo status.</span></p>
                         </div>
                     </div>
 
@@ -218,8 +224,8 @@
                     <div class="procedure-step">
                         <div class="step-number">5</div>
                         <div class="step-content">
-                            <h3><span class="lang-ja">荷物のお受取</span><span class="lang-en" style="display:none;">Receipt of Cargo</span></h3>
-                            <p><span class="lang-ja">カンボジア現地での検品が完了した後、お客様の元へ安全にお荷物をお届けいたします。</span><span class="lang-en" style="display:none;">After the inspection is completed locally in Cambodia, your cargo will be safely delivered to you.</span></p>
+                            <h3><span class="lang-ja">荷物のお受取</span><span class="lang-en">Receipt of Cargo</span></h3>
+                            <p><span class="lang-ja">カンボジア現地での検品が完了した後、お客様の元へ安全にお荷物をお届けいたします。</span><span class="lang-en">After the inspection is completed locally in Cambodia, your cargo will be safely delivered to you.</span></p>
                         </div>
                     </div>
                 </div>
@@ -233,40 +239,6 @@
         </div>
     </footer>
 
-    <script>
-        // Language switching functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const langButtons = document.querySelectorAll('.lang-switch-btn');
-            const langElementsJa = document.querySelectorAll('.lang-ja');
-            const langElementsEn = document.querySelectorAll('.lang-en');
-
-            function setLanguage(lang) {
-                langButtons.forEach(button => {
-                    if (button.dataset.lang === lang) {
-                        button.classList.add('active');
-                    } else {
-                        button.classList.remove('active');
-                    }
-                });
-
-                if (lang === 'ja') {
-                    langElementsJa.forEach(el => el.style.display = 'inline');
-                    langElementsEn.forEach(el => el.style.display = 'none');
-                } else {
-                    langElementsJa.forEach(el => el.style.display = 'none');
-                    langElementsEn.forEach(el => el.style.display = 'inline');
-                }
-            }
-
-            langButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    setLanguage(button.dataset.lang);
-                });
-            });
-
-            // Set default language on load (Japanese)
-            setLanguage('ja');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,86 +1,155 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*
+ * SMALL EARTH TRADING - 共通スクリプト
+ *
+ * 全ページ共通で読み込みます。ページ固有の設定は HTML 側の属性で指定してください。
+ *
+ *   <html lang="ja" data-title-ja="..." data-title-en="...">
+ *   <input data-placeholder-ja="..." data-placeholder-en="...">
+ *
+ * 言語の表示・非表示は CSS（style.css の html[lang] ルール）が担当します。
+ * このスクリプトは <html> の lang 属性を切り替えるだけです。
+ */
+(function () {
+    'use strict';
 
-    // --- モバイルナビゲーションのトグル ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNavUl = document.querySelector('#mainNav');
+    var STORAGE_KEY = 'preferredLanguage';
+    var DEFAULT_LANG = 'ja';
+    var SUPPORTED = ['ja', 'en'];
 
-    if (menuToggle && mainNavUl) {
-        menuToggle.addEventListener('click', function () {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            mainNavUl.classList.toggle('active');
-        });
-
-        mainNavUl.querySelectorAll('a').forEach(link => {
-            if (link.getAttribute('href').startsWith('#')) {
-                link.addEventListener('click', () => {
-                    if (mainNavUl.classList.contains('active')) {
-                        menuToggle.click();
-                    }
-                });
-            }
-        });
+    /* localStorage はプライベートブラウジング等で例外を投げることがあるため必ず包む */
+    function readStoredLang() {
+        try {
+            var v = localStorage.getItem(STORAGE_KEY);
+            return SUPPORTED.indexOf(v) !== -1 ? v : null;
+        } catch (e) {
+            return null;
+        }
     }
 
-    // --- ページ全体の言語切り替え処理 ---
-    const langSwitchButtons = document.querySelectorAll('.lang-switch-btn');
-    const allJaElements = document.querySelectorAll('.lang-ja');
-    const allEnElements = document.querySelectorAll('.lang-en');
-    const htmlTag = document.documentElement;
-
-    const pageTitles = {
-        ja: "SMALL EARTH TRADING Co.,ltd - サービス案内",
-        en: "SMALL EARTH TRADING Co.,ltd - Service Information"
-    };
+    function storeLang(lang) {
+        try {
+            localStorage.setItem(STORAGE_KEY, lang);
+        } catch (e) {
+            /* 保存できなくても表示自体は動くので握りつぶす */
+        }
+    }
 
     function setLanguage(lang) {
-        if (lang === 'en') {
-            allJaElements.forEach(el => el.style.display = 'none');
-            allEnElements.forEach(el => el.style.display = '');
-            htmlTag.setAttribute('lang', 'en');
-            document.title = pageTitles.en;
-        } else { // デフォルトは日本語
-            allJaElements.forEach(el => el.style.display = '');
-            allEnElements.forEach(el => el.style.display = 'none');
-            htmlTag.setAttribute('lang', 'ja');
-            document.title = pageTitles.ja;
+        if (SUPPORTED.indexOf(lang) === -1) {
+            lang = DEFAULT_LANG;
         }
 
-        langSwitchButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
+        var html = document.documentElement;
+        html.setAttribute('lang', lang);
+
+        /* ページタイトル（<html> の data-title-* から取得） */
+        var title = html.getAttribute('data-title-' + lang);
+        if (title) {
+            document.title = title;
+        }
+
+        /* placeholder など、テキストノードでない箇所 */
+        var placeholderTargets = document.querySelectorAll('[data-placeholder-' + lang + ']');
+        Array.prototype.forEach.call(placeholderTargets, function (el) {
+            el.setAttribute('placeholder', el.getAttribute('data-placeholder-' + lang));
         });
 
-        localStorage.setItem('preferredLanguage', lang);
+        /* 切り替えボタンの状態 */
+        var buttons = document.querySelectorAll('.lang-switch-btn');
+        Array.prototype.forEach.call(buttons, function (btn) {
+            var isActive = btn.getAttribute('data-lang') === lang;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        storeLang(lang);
+
+        /* ページ固有の処理（FAQ 検索の再実行など）から購読できるようにする */
+        document.dispatchEvent(new CustomEvent('languagechange', { detail: { lang: lang } }));
     }
 
-    langSwitchButtons.forEach(button => {
-        button.addEventListener('click', () => setLanguage(button.dataset.lang));
+    /* 外部から呼べるように公開 */
+    window.SET = window.SET || {};
+    window.SET.setLanguage = setLanguage;
+    window.SET.getLanguage = function () {
+        return document.documentElement.getAttribute('lang') || DEFAULT_LANG;
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        /* ---- 言語切り替え ---- */
+        var langButtons = document.querySelectorAll('.lang-switch-btn');
+        Array.prototype.forEach.call(langButtons, function (button) {
+            button.addEventListener('click', function () {
+                setLanguage(button.getAttribute('data-lang'));
+            });
+        });
+
+        /* <head> の先読みスクリプトで lang は設定済みだが、
+           タイトル・placeholder・ボタン状態をここで確定させる */
+        setLanguage(readStoredLang() || DEFAULT_LANG);
+
+        /* ---- モバイルナビゲーションのトグル ---- */
+        var menuToggle = document.querySelector('.menu-toggle');
+        var mainNav = document.querySelector('#mainNav');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function () {
+                var isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+                mainNav.classList.toggle('active');
+            });
+
+            Array.prototype.forEach.call(mainNav.querySelectorAll('a'), function (link) {
+                var href = link.getAttribute('href') || '';
+                if (href.charAt(0) === '#') {
+                    link.addEventListener('click', function () {
+                        if (mainNav.classList.contains('active')) {
+                            menuToggle.click();
+                        }
+                    });
+                }
+            });
+        }
+
+        /* ---- スクロールに応じたナビのアクティブ表示 ---- */
+        var sections = document.querySelectorAll('main section[id]');
+        var navLinks = document.querySelectorAll('.global-nav ul a[href^="#"]');
+
+        if (sections.length && navLinks.length) {
+            /* --header-height が未定義のページでも壊れないようフォールバックを置く */
+            var raw = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+            var headerHeight = parseInt(raw, 10);
+            if (isNaN(headerHeight)) {
+                headerHeight = 70;
+            }
+
+            var ticking = false;
+
+            var updateActiveNav = function () {
+                var currentId = '';
+                Array.prototype.forEach.call(sections, function (section) {
+                    if (window.pageYOffset >= section.offsetTop - headerHeight - 20) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+
+                Array.prototype.forEach.call(navLinks, function (link) {
+                    link.classList.toggle('active', link.hash === '#' + currentId);
+                });
+
+                ticking = false;
+            };
+
+            /* scroll イベントは毎フレーム走るので rAF で間引く */
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(updateActiveNav);
+                }
+            }, { passive: true });
+
+            updateActiveNav();
+        }
     });
-
-    const preferredLanguage = localStorage.getItem('preferredLanguage');
-    setLanguage(preferredLanguage || 'ja');
-
-    // --- スクロールに応じてナビゲーションのアクティブ状態を更新 ---
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.global-nav ul a[href^="#"]');
-    const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
-
-    function changeNavOnScroll() {
-        let currentSectionId = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 20;
-            if (window.pageYOffset >= sectionTop) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.hash === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', changeNavOnScroll);
-});
+})();
