@@ -88,9 +88,23 @@ localStorage.removeItem('preferredLanguage'); location.reload();
 
 ## 未対応の課題
 
-- `procedure.html` と `faq-more.html` が Tailwind CDN + ページ内 `<style>` を使っており、
-  他の2ページ（`style.css`）と実装が分かれている
-- `meta description` / OGP / favicon / canonical が未設定
-- `robots.txt` / `sitemap.xml` / `404.html` が未作成
 - `<img>` に `width` / `height` 属性がなく、読み込み時にレイアウトが動く
 - 動画（約3.4MB）に `preload="none"` が未指定
+- 画像が JPEG のままで、WebP 化による軽量化の余地がある
+- 日英が同一URLに同居しているため、検索エンジン評価上は `/en/` への分離が望ましい
+
+## メタ情報・SEO
+
+各ページの `<head>` に `description`、canonical、OGP、ファビコンを設定しています。
+ページを追加したときは、以下もあわせて更新してください。
+
+- 新しいページの `<head>` に同じ形式のメタタグ一式（`description` と canonical、
+  `og:title` / `og:description` / `og:url` はページごとに書き換える）
+- `sitemap.xml` に `<url>` ブロックを追加し、`lastmod` を更新
+
+SNSでシェアされたときのサムネイルは `og-image.jpg`（1200x630）です。
+差し替える場合は同じ寸法で用意してください。
+
+`404.html` は GitHub Pages が自動で使う特別なファイル名です。
+このサイトはリポジトリ名がURLに含まれる形で公開されているため、
+`404.html` 内のリンクは `/smallearthtrading/` から始まる絶対パスで書いています。
