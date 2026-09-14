@@ -104,7 +104,7 @@ img { max-width: 100%; height: auto; }
 
 /* LINE紹介セクション */
 .video-container { margin: 20px 0; text-align: center; }
-.video-container video { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.video-container video { max-width: 320px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 .line-contact { text-align: center; margin-top: 20px; }
 .line-link { display: inline-block; }
 
@@ -140,8 +140,8 @@ html[lang="en"] .lang-ja { display: none; }
 .faq-more { margin-top: 30px; text-align: center; font-size: 1.1em; }
 .important-link { margin-top: 20px; font-size: 1.05em; font-weight: 700; }
 .contact-qr-container { text-align: center; margin-top: 30px; }
-.qr-code { width: 140px; height: 140px; border: 1px solid #eee; }
-.qr-code-large { width: 200px; height: 200px; border: 3px solid white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.qr-code { width: 140px; height: auto; border: 1px solid #eee; }
+.qr-code-large { width: 200px; height: auto; border: 3px solid white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
 /* フッター */
 .site-footer-bottom { background-color: #333; color: #f0f0f0; text-align: center; padding: 20px 0; font-size: 0.9rem; }
