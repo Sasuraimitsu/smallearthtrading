@@ -6,174 +6,17 @@
     <script>/* 表示前に言語を確定させ、日英が一瞬二重表示されるのを防ぐ */
     try{var _l=localStorage.getItem("preferredLanguage");document.documentElement.lang=(_l==="en"||_l==="ja")?_l:"ja";}catch(e){}</script>
     <title>よくあるご質問 - SMALL EARTH TRADING Co.,ltd</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles to match the provided website's aesthetic */
-        body {
-            font-family: 'Noto Sans JP', 'Inter', sans-serif;
-            background-color: #f7fafc; /* Light gray background */
-            color: #2d3748; /* Dark gray text */
-        }
-        .site-header {
-            background-color: #ffffff; /* White header background */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            padding: 1rem 0;
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .logo img {
-            height: 40px; /* Adjust as needed */
-            border-radius: 8px; /* Rounded corners for logo */
-        }
-        .header-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .language-switcher button {
-            background-color: #edf2f7; /* Light gray button */
-            color: #4a5568; /* Darker gray text */
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-        .language-switcher button.active {
-            background-color: #4299e1; /* Blue for active language */
-            color: #ffffff;
-        }
-        .language-switcher button:hover:not(.active) {
-            background-color: #e2e8f0;
-        }
-        .nav-button {
-            background-color: #4299e1; /* Blue button */
-            color: #ffffff;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        .nav-button:hover {
-            background-color: #2b6cb0; /* Darker blue on hover */
-        }
-        .section-padding {
-            padding: 3rem 0;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .faq-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .faq-header h2 {
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-        .search-container {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-        .search-container input {
-            width: 100%;
-            max-width: 400px;
-            padding: 0.75rem 1rem;
-            border: 1px solid #cbd5e0; /* Light gray border */
-            border-radius: 8px;
-            font-size: 1rem;
-            color: #4a5568;
-        }
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem; /* Space between FAQ entries */
-        }
-        .faq-category-title {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #4299e1; /* Blue underline for category */
-            padding-bottom: 0.5rem;
-        }
-        .faq-category-title h3 {
-            font-size: 1.75rem; /* text-3xl */
-            font-weight: 700; /* font-bold */
-            color: #2d3748;
-        }
-        .faq-entry {
-            background-color: #ffffff;
-            padding: 1.5rem;
-            border-radius: 12px; /* Rounded corners */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-        .faq-entry h3 {
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 700; /* font-bold */
-            color: #4299e1; /* Blue for questions */
-            margin-bottom: 0.75rem;
-        }
-        .faq-entry p {
-            font-size: 1rem; /* text-base */
-            line-height: 1.6;
-            color: #4a5568;
-        }
-        .site-footer-bottom {
-            background-color: #2d3748; /* Dark blue-gray footer */
-            color: #a0aec0; /* Light gray text */
-            padding: 1.5rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        .site-footer-bottom p {
-            font-size: 0.875rem; /* text-sm */
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .header-controls {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            .faq-header h2 {
-                font-size: 2rem;
-            }
-            .faq-category-title h3 {
-                font-size: 1.5rem;
-            }
-            .faq-entry h3 {
-                font-size: 1.125rem;
-            }
-            .faq-entry p {
-                font-size: 0.9375rem;
-            }
-        }
-
-        /* ===== 言語切り替え（style.css と同じルール） ===== */
-        html[lang="ja"] .lang-en,
-        html[lang="en"] .lang-ja { display: none; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="faq-page">
 
     <header class="site-header">
-        <div class="header-container">
+        <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="logo-sme.jpg" alt="SMALL EARTH TRADING Co.,ltd logo" onerror="this.onerror=null;this.src='https://placehold.co/150x40/E2E8F0/4A5568?text=LOGO';">
+                <img src="logo-sme.jpg" alt="SMALL EARTH TRADING Co.,ltd logo">
             </a>
             <div class="header-controls">
                 <div class="language-switcher">
@@ -188,7 +31,7 @@
         </div>
     </header>
 
-    <main class="faq-page">
+    <main>
         <section class="section-padding">
             <div class="container">
                 <div class="faq-header">

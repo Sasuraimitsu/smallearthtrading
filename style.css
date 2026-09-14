@@ -138,6 +138,7 @@ html[lang="en"] .lang-ja { display: none; }
 .faq-item { background-color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
 .faq-item h3 { font-size: 1.2rem; margin-bottom: 0.3em; color: var(--primary-color);}
 .faq-more { margin-top: 30px; text-align: center; font-size: 1.1em; }
+.important-link { margin-top: 20px; font-size: 1.05em; font-weight: 700; }
 .contact-qr-container { text-align: center; margin-top: 30px; }
 .qr-code { width: 140px; height: 140px; border: 1px solid #eee; }
 .qr-code-large { width: 200px; height: 200px; border: 3px solid white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
@@ -153,6 +154,8 @@ html[lang="en"] .lang-ja { display: none; }
 #faq-search { width: 100%; padding: 12px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 25px; box-sizing: border-box; transition: border-color 0.3s, box-shadow 0.3s; }
 #faq-search:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
 .faq-list { max-width: 800px; margin: 0 auto; }
+.faq-category-title { max-width: 800px; margin: 40px auto 20px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; }
+.faq-category-title h3 { font-size: 1.4rem; color: var(--text-color); border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
 .faq-entry { background-color: var(--light-gray-bg); border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 20px; padding: 20px 25px; transition: transform 0.2s, box-shadow 0.2s; }
 .faq-entry:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
 .faq-entry h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 0.5em; cursor: pointer; border-bottom: none; }
@@ -244,4 +247,20 @@ html[lang="en"] .lang-ja { display: none; }
 }
 .disclosure-page .header-controls .nav-button {
     font-weight: 700;
+}
+
+/* ========== お手続きの流れページ専用スタイル ========== */
+.procedure-page .section-padding { background-color: #fff; }
+.procedure-header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--light-gray-bg); padding-bottom: 30px; }
+.procedure-header h2 { text-align: center; }
+.procedure-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.procedure-step { display: flex; align-items: flex-start; gap: 24px; background-color: var(--light-gray-bg); border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; transition: transform 0.2s, box-shadow 0.2s; }
+.procedure-step:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.step-number { flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background-color: var(--primary-color); color: #fff; font-family: var(--heading-font); font-size: 1.3rem; font-weight: 700; line-height: 1; }
+.step-content h3 { font-size: 1.2rem; color: var(--primary-color); border-bottom: none; padding-bottom: 0; margin-bottom: 0.4em; }
+.step-content p { margin-bottom: 0; line-height: 1.8; }
+.procedure-page .header-controls .nav-button { font-weight: 700; }
+
+@media (max-width: 820px) {
+    .procedure-step { flex-direction: column; align-items: center; text-align: center; gap: 14px; }
 }
