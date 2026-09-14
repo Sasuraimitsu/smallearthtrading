@@ -10,16 +10,31 @@ GitHub Pages で公開しています。
 静的HTMLのみで、ビルド作業は不要です。ファイルを編集してコミットすれば、
 数分後に公開サイトへ反映されます。
 
-| ファイル | 内容 |
-| --- | --- |
-| `index.html` | トップページ（お知らせ・料金表・ご利用の流れ・導入事例・FAQ・お問い合わせ） |
-| `procedure.html` | お手続きの流れ |
-| `important-matters.html` | 重要事項説明 |
-| `faq-more.html` | よくあるご質問（検索機能つき） |
-| `style.css` | 全ページ共通のスタイル |
-| `script.js` | 全ページ共通のスクリプト（言語切り替え・ナビ・スクロール連動） |
+```
+/
+├─ index.html                    トップページ
+├─ procedure.html                お手続きの流れ
+├─ important-matters.html        重要事項説明
+├─ faq-more.html                 よくあるご質問（検索機能つき）
+├─ 404.html                      存在しないURL用のページ
+├─ robots.txt / sitemap.xml      検索エンジン向け
+├─ googlebe9db5a5b0420a7d.html   Search Console 所有権確認（削除・移動禁止）
+└─ assets/
+    ├─ css/style.css             全ページ共通のスタイル
+    ├─ js/script.js              全ページ共通のスクリプト
+    ├─ img/                      画像・ファビコン・OGP画像
+    └─ video/                    動画
+```
 
-画像・動画はリポジトリ直下に置いています。
+> **ルート直下のファイルは動かさないでください**
+> HTMLファイルのURLは `sitemap.xml` と各ページの canonical で宣言済みです。
+> 移動すると検索エンジンからは「別のページ」として扱われ、評価がリセットされます。
+> `googlebe9db5a5b0420a7d.html` は移動・削除すると Search Console の所有権が失効します。
+
+画像やCSSを追加するときは `assets/` 配下の該当フォルダに置き、
+HTMLからは `assets/img/xxx.jpg` のような相対パスで参照してください。
+`404.html` だけは例外で、どの階層で表示されるか分からないため
+`/smallearthtrading/assets/img/xxx.jpg` という絶対パスを使っています。
 
 ## 日本語 / 英語の切り替えについて
 
