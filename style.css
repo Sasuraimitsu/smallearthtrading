@@ -108,12 +108,24 @@ img { max-width: 100%; height: auto; }
 .line-contact { text-align: center; margin-top: 20px; }
 .line-link { display: inline-block; }
 
+/* お知らせセクション */
+.news-item { background-color: #fff; padding: 24px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
+.news-item:last-child { margin-bottom: 0; }
+.news-date { font-size: 0.85em; color: #777; margin-bottom: 0.4em; }
+.news-item h3 { font-size: 1.25rem; color: var(--primary-color); margin-bottom: 0.6em; }
+.news-item h4 { font-size: 1rem; margin-top: 1.4em; margin-bottom: 0.3em; }
+.news-item h4:first-of-type { margin-top: 1em; }
+.news-item p { margin-bottom: 0.6em; }
+.news-item ul { margin-bottom: 0.6em; }
+
 /* 料金表セクション */
 .price-category { margin-bottom: 40px; }
 .price-table, .price-table-visual { width: 100%; margin-top: 1em; }
 .price-table-visual td { text-align: center; }
 .price-image { max-width: 80px; height: auto; }
 .price-table strong, .price-table-visual strong { font-size: 1.2em; color: var(--primary-color); }
+.price-note { font-size: 0.9em; line-height: 1.7; margin-top: 0.8em; }
+.price-note strong { font-weight: 700; }
 
 /* 事例、FAQ、連絡先 */
 .case-item { background-color: #fff; padding: 20px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
